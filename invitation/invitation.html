@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: 'Univers LT Std 49 Light Ultra Condensed';
+            src: url('https://knnygrdn.com/assets/Univers-LT-Std-49_L-UCond.otf') format('opentype');
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(162%);
+            }
+            100% {
+                transform: translateY(-120%);
+            }
+        }
+
+        body{
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Univers LT Std 49 Light Ultra Condensed', sans-serif;
+            color: #ffe81f;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('invitation.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            filter: blur(5px) brightness(0.7);
+            z-index: -1;
+        }
+
+        .bg {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 100vh;
+            max-width: 100%;
+        }
+
+        .bg img {
+            display: block;
+            z-index: 1;
+            max-width: 100%;
+            max-height: 100vh;
+            height:auto;
+        }
+
+        .container {
+            position: absolute;
+            font-size: 32px;
+            line-height: 1.5;
+            width: 100%;
+            max-height: 100%;
+            overflow-y: hidden;
+            background-color: none;
+            transform: perspective(400px) rotateX(40deg);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70vh;
+        }
+
+        .invitation {
+            animation: scroll 80s linear infinite;
+            text-align: justify;
+            will-change: transform;
+            transform: perspective(400px) rotateX(35deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            max-height: 100vh;
+        }
+
+        .header {
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            font-size: 40px;
+            margin-bottom: 10%;
+            margin-top: 150%;
+        }
+
+        .info_container{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:50%;
+            height: 20%;
+            border-radius: 30px;
+            margin-bottom: 45%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 3;
+        }
+
+        .info {
+            font-size: 40px;
+            margin-bottom: 20%;
+        }
+
+        a {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 20%;
+            border-radius: 10px;
+            margin-top: 50%;
+            background-color: rgba(0,0,0,0.7);
+            font-size: 40px;
+            text-decoration: none;
+            border: thin solid #ffe81f;
+            color: #ffe81f;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <img src="invitation.png" alt="Invitation Background">
+        <div class="container">
+            <span class="invitation">
+                <span class="header">Kenny's turning 30?</span>
+                <br><br>
+                Sith just got real! Forget the high ground, we've got the party ground. Anakin would be jealous he wasn't invited to this lava-hot celebration!
+                <br><br>
+                <span class="header">Kenny's 30 and still a trooper!</span>
+                <br><br>
+                Before he considers trading his speeder for a pod racer, let's have a bash that Qui-Gon Jinn would give two thumbs up. Mace Windu might even crack a smile!
+                <br><br>
+                <span class="header">Alderaan choices and yet,<br>here's Kenny's 30th!</span>
+                <br><br>
+                We promise a party better than the Boonta Eve Classic. Just remember, no sand... it's coarse and rough and irritating and it gets everywhere.
+                <br><br>
+                <span class="header">Kenny's hitting 30?</span>
+                <br><br>
+                More surprising than Palpatine's 'unlimited power'! Come join the Senate (I mean, the party) and let's toast to the chosen one's big day!
+                <br><br>
+                <span class="header">Kenny's 30th is upon us.</span>
+                <br><br>It's not a trap, but a tribute! Dive deeper than Obi-Wan diving for Grievous on Utapau. This celebration promises more twists than Anakin's allegiance!
+                <br><br>
+                <span class="header">Kenny's turning 30 and still a trooper!</span>
+                <br><br>
+                Before he trades his lightsaber for a cane and joins the gray side, let's have a galactic gathering that's more exhilarating than a podrace on Tatooine! With more laughs than there are parsecs in the Kessel Run, this party will be the talk of Coruscant.
+            </span>
+        </div>
+        <div class="info_container">
+            <span class="info">
+                WHEN &nbsp;&nbsp;&nbsp;&nbsp; November 18
+                <br>
+                WHERE &nbsp;&nbsp; 296 Kaybe Court
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;San Jose, CA 95139
+            </span>
+            <a href=""><span>RSVP!</span></a>
+        </div>
+    </div>
+</body>
+</html>
