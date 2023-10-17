@@ -1,179 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenny's 30th Birthday Invitation</title>
     <style>
         @font-face {
-            font-family: 'Univers LT Std 49 Light Ultra Condensed';
-            src: url('https://raw.githubusercontent.com/KTheMan/ktheman.github.io/main/invitation/Univers-LT-Std-49_L-UCond.otf') format('opentype');
+            font-family: "Univers";
+            src: url('https://raw.githubusercontent.com/KTheMan/ktheman.github.io/main/invitation/Univers-LT-Std-49_L-UCond.otf');
         }
 
-        @keyframes scroll {
+        @keyframes scrollText {
             0% {
-                transform: translateY(162%);
+                transform: translateY(10%);
             }
             100% {
-                transform: translateY(-120%);
+                transform: translateY(-200%);
             }
         }
 
-        body{
-            height: 100vh;
+        body, html {
             margin: 0;
             padding: 0;
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Univers LT Std 49 Light Ultra Condensed', sans-serif;
+            height: 100%;
+            font-family: "Univers", sans-serif;
             color: #ffe81f;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        body::before {
-            content: "";
-            position: absolute;
+        .background {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://github.com/KTheMan/ktheman.github.io/blob/47c221322b62ecfa520c50b9df04e322ea365e42/invitation/Invitation.png?raw=true');
             background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            filter: blur(5px) brightness(0.7);
+            filter: blur(8px) brightness(0.8);
             z-index: -1;
         }
 
-        .bg {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .container {
+            position: relative;
             width: auto;
             height: 100vh;
-            max-width: 100%;
+            max-width: calc(100vh * (2000 / 3508));
+            width: calc(100vw);
+            max-height: calc(100vw * (3508 / 2000));
+            margin: 2%;
+            background-image: url('https://github.com/KTheMan/ktheman.github.io/blob/47c221322b62ecfa520c50b9df04e322ea365e42/invitation/Invitation.png?raw=true');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-size: calc(min(1.78vw, 1vh) * 1.5);
+
+            perspective-origin: center;
+            transform-origin: center;
+            perspective: 300px;
         }
 
-        .bg img {
-            display: block;
-            z-index: 1;
-            max-width: 100%;
-            max-height: 100vh;
-            height:auto;
-        }
-
-        .container {
+        .box {
             position: absolute;
-            font-size: 32px;
-            line-height: 1.5;
-            width: 100%;
-            max-height: 100%;
-            overflow-y: hidden;
-            background-color: none;
-            transform: perspective(400px) rotateX(40deg);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 70vh;
-        }
-
-        .invitation {
-            animation: scroll 80s linear infinite;
-            text-align: justify;
-            will-change: transform;
-            transform: perspective(400px) rotateX(35deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 50%;
-            max-height: 100vh;
-        }
-
-        .header {
-            text-transform: uppercase;
+            top: 20%;
+            left: 12.5%;
+            width: 75%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
             text-align: center;
-            line-height: 1;
-            font-size: 40px;
-            margin-bottom: 10%;
-            margin-top: 150%;
+            padding: 2% 2%;
         }
 
-        .info_container{
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width:50%;
-            height: 20%;
-            border-radius: 30px;
-            margin-bottom: 45%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 3;
+        .box table {
+            width: 100%;
+            margin: auto;
+            padding-bottom: 2%;
+
         }
 
-        .info {
-            font-size: 40px;
-            margin-bottom: 20%;
+        .box td {
+            vertical-align: top;
+            padding-left: 10%;
+            text-align: left;
+            font-size: 3.125em
+        }
+
+        .info td {
+            font-size: 3.125em;
+        }
+
+        .rsvp span {
+            font-size: 2.5em;
+            padding: 1% 10%;;
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 10px;
+            border: thin solid #ffe81f;
         }
 
         a {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50%;
-            height: 20%;
-            border-radius: 10px;
-            margin-top: 50%;
-            background-color: rgba(0,0,0,0.7);
-            font-size: 40px;
             text-decoration: none;
-            border: thin solid #ffe81f;
             color: #ffe81f;
         }
+
+        .invitation_container {
+            position: absolute;
+            top: 40%;
+            left: 25%;
+            width: 50%;
+            height: 60%;
+            transform: rotateX(96deg);
+        }
+
+        .invitation {
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: scrollText 140s linear infinite;
+            will-change: transform;
+            text-rendering: geometricPrecision;
+        }
+
+        .regular {
+            font-size: 2em;
+            text-align: justify;
+        }
+
+        .header {
+            font-size: 2.2em;
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10%;
+            margin-top: 100%;
+        }
+
     </style>
 </head>
+
 <body>
-    <div class="bg">
-        <img src="https://github.com/KTheMan/ktheman.github.io/blob/47c221322b62ecfa520c50b9df04e322ea365e42/invitation/Invitation.png?raw=true" alt="Invitation Background">
-        <div class="container">
-            <span class="invitation">
+    <div class="background"></div>
+    <div class="container">
+        <div class="box">
+            <table class="info">
+                <tbody>
+                    <tr>
+                        <td><strong>WHEN</strong></td>
+                        <td>November 18 at 6PM</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WHERE</strong></td>
+                        <td>296 Kaybe Ct <br> San Jose, CA 95139</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="" class="rsvp"><span>RSVP!</span></a>
+        </div>
+        <div class="invitation_container">
+            <div class="invitation">
                 <span class="header">Kenny's turning 30?</span>
                 <br><br>
-                Sith just got real! Forget the high ground, we've got the party ground. Anakin would be jealous he wasn't invited to this lava-hot celebration!
+                <span class="regular">Sith just got real! Forget the high ground, we've got the party ground. Anakin would be jealous he wasn't invited to this lava-hot celebration!</span>
                 <br><br>
                 <span class="header">Kenny's 30 and still a trooper!</span>
                 <br><br>
-                Before he considers trading his speeder for a pod racer, let's have a bash that Qui-Gon Jinn would give two thumbs up. Mace Windu might even crack a smile!
+                <span class="regular">Before he considers trading his speeder for a pod racer, let's have a bash that Qui-Gon Jinn would give two thumbs up. Mace Windu might even crack a smile!</span>
                 <br><br>
                 <span class="header">Alderaan choices and yet,<br>here's Kenny's 30th!</span>
                 <br><br>
-                We promise a party better than the Boonta Eve Classic. Just remember, no sand... it's coarse and rough and irritating and it gets everywhere.
+                <span class="regular">We promise a party better than the Boonta Eve Classic. Just remember, no sand... it's coarse and rough and irritating and it gets everywhere.</span>
                 <br><br>
                 <span class="header">Kenny's hitting 30?</span>
                 <br><br>
-                More surprising than Palpatine's 'unlimited power'! Come join the Senate (I mean, the party) and let's toast to the chosen one's big day!
+                <span class="regular">More surprising than Palpatine's 'unlimited power'! Come join the Senate (I mean, the party) and let's toast to the chosen one's big day!</span>
                 <br><br>
                 <span class="header">Kenny's 30th is upon us.</span>
-                <br><br>It's not a trap, but a tribute! Dive deeper than Obi-Wan diving for Grievous on Utapau. This celebration promises more twists than Anakin's allegiance!
                 <br><br>
-                <span class="header">Kenny's turning 30 and still a trooper!</span>
+                <span class="regular">It's not a trap, but a tribute! Dive deeper than Obi-Wan diving for Grievous on Utapau. This celebration promises more twists than Anakin's allegiance!</span>
                 <br><br>
-                Before he trades his lightsaber for a cane and joins the gray side, let's have a galactic gathering that's more exhilarating than a podrace on Tatooine! With more laughs than there are parsecs in the Kessel Run, this party will be the talk of Coruscant.
-            </span>
-        </div>
-        <div class="info_container">
-            <span class="info">
-                WHEN &nbsp;&nbsp;&nbsp;&nbsp; November 18
-                <br>
-                WHERE &nbsp;&nbsp; 296 Kaybe Court
-                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;San Jose, CA 95139
-            </span>
-            <a href=""><span>RSVP!</span></a>
+                <span class="header">Kenny's turning 30 and 
+                    <br> still a trooper!</span>
+                <br><br>
+                <span class="regular">Before he trades his lightsaber for a cane and joins the gray side, let's have a galactic gathering that's more exhilarating than a podrace on Tatooine! With more laughs than there are parsecs in the Kessel Run, this party will be the talk of Coruscant.</span>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
